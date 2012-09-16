@@ -12,9 +12,18 @@ public class Tile {
 		DESERT	
 	}
 	private tileType type;
-	public Tile(tileType tp)
+	private int token;
+	public Tile(int tp)
 	{
 		type = tp;
+		
+	}
+	public Tile(tileType tp, int tk)
+	{
+		type = tp;
+		token = tk;
 	
 	}
+	public tileType getType()
+	{ return type; }
 }
