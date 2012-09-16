@@ -5,7 +5,6 @@ public class Tile {
 	{
 		FOREST,
 		MOUNTAIN,
-		PLAINS,
 		FIELDS,
 		PASTURE,
 		HILLS,
@@ -15,7 +14,7 @@ public class Tile {
 	private int token;
 	public Tile(int tp)
 	{
-		type = tp;
+		type = tileType.values()[tp];
 		
 	}
 	public Tile(tileType tp, int tk)
@@ -26,4 +25,8 @@ public class Tile {
 	}
 	public tileType getType()
 	{ return type; }
+	public String toString()
+	{
+		return type.toString();
+	}
 }
