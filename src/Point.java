@@ -7,24 +7,14 @@ public class Point {
 		TOWN,
 		CITY
 	}
-	public enum Owner
-	{
-		EMPTY,
-		RED,
-		BLUE,
-		ORANGE,
-		WHITE
-	}
 	
 	Tile[] adjTiles = new Tile[3];
 	
 	boolean hasHarbor;
 	private Occupation occ;
-	private Owner owner;
 	
 	public Point()
 	{
-		owner = Owner.EMPTY;
 		occ = Occupation.EMPTY;
 		hasHarbor = false;
 		for(int i = 0; i < 3; i++)
@@ -55,16 +45,14 @@ public class Point {
 	}
 	public  Occupation getOccupation()
 	{ return occ; }
-	public void setOwner(Owner ow)
-	{
-		owner = ow;
-	}
 	public void toggleHarbor()
 	{
 		hasHarbor = !hasHarbor;
 	}
 	public boolean getHarborStatus()
 	{ return hasHarbor; }
+	public Tile[] getAdjTiles()
+	{ return adjTiles; }
 	public String toString()
 	{
 		String s = "";
