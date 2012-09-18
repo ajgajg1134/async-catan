@@ -42,30 +42,102 @@ public class Map {
 			temp1.add(new Point());
 			temp4.add(new Point());
 		}
-		//end fill
-		//start associating points with tiles
-		//Top and Bottom row
-		for(int i = 0; i < 7; i++)
+		/*
+		 * This part manually adds adjacent tiles to points
+		 */
+		for(int i = 0; i < 11; i++)
 		{
 			if(i < 3)
 			{
+				//Top and Bot
 				temp.get(i).addAdjTile(tiles.get(0).get(0));
 				temp5.get(i).addAdjTile(tiles.get(4).get(0));
+				//Next Inner
+				temp1.get(i).addAdjTile(tiles.get(1).get(0));
+				temp4.get(i).addAdjTile(tiles.get(3).get(0));
+				//Innermost
+				temp2.get(i).addAdjTile(tiles.get(2).get(0));
+				temp3.get(i).addAdjTile(tiles.get(2).get(0));
 			}
 			if(i > 1 && i < 5)
 			{
+			
 				temp.get(i).addAdjTile(tiles.get(0).get(1));
 				temp5.get(i).addAdjTile(tiles.get(4).get(1));
+				
+				temp1.get(i).addAdjTile(tiles.get(1).get(1));
+				temp4.get(i).addAdjTile(tiles.get(3).get(1));
+				
+				temp2.get(i).addAdjTile(tiles.get(2).get(1));
+				temp3.get(i).addAdjTile(tiles.get(2).get(1));
 			}
-			if(i > 3)
+			if(i > 3 && i < 7)
 			{
 				temp.get(i).addAdjTile(tiles.get(0).get(2));
 				temp5.get(i).addAdjTile(tiles.get(4).get(2));
+				
+				temp1.get(i).addAdjTile(tiles.get(1).get(2));
+				temp4.get(i).addAdjTile(tiles.get(3).get(2));
+				
+				temp2.get(i).addAdjTile(tiles.get(2).get(2));
+				temp3.get(i).addAdjTile(tiles.get(2).get(2));
 			}
-		}
+			if(i > 5 && i < 9)
+			{
+				temp1.get(i).addAdjTile(tiles.get(1).get(3));
+				temp4.get(i).addAdjTile(tiles.get(3).get(3));
+				
+				temp2.get(i).addAdjTile(tiles.get(2).get(3));
+				temp3.get(i).addAdjTile(tiles.get(2).get(3));
+			}
+			if(i > 7)
+			{
+				temp2.get(i).addAdjTile(tiles.get(2).get(4));
+				temp3.get(i).addAdjTile(tiles.get(2).get(4));
+			}
+			
+			//Now to add exterior portion
+			if(i > 0 && i < 4)
+			{
+				temp1.get(i).addAdjTile(tiles.get(0).get(0));
+				temp4.get(i).addAdjTile(tiles.get(4).get(0));
+				
+				temp2.get(i).addAdjTile(tiles.get(1).get(0));
+				temp3.get(i).addAdjTile(tiles.get(3).get(0));
+			}
+			if(i > 2 && i < 6)
+			{
+				temp1.get(i).addAdjTile(tiles.get(0).get(1));
+				temp4.get(i).addAdjTile(tiles.get(4).get(1));
+				
+				temp2.get(i).addAdjTile(tiles.get(1).get(1));
+				temp3.get(i).addAdjTile(tiles.get(3).get(1));
+			}
+			if(i > 4 && i < 8)
+			{
+				temp1.get(i).addAdjTile(tiles.get(0).get(2));
+				temp4.get(i).addAdjTile(tiles.get(4).get(2));
+				
+				temp2.get(i).addAdjTile(tiles.get(1).get(2));
+				temp3.get(i).addAdjTile(tiles.get(3).get(2));
+			}
+			if(i > 6 && i < 10)
+			{
+				temp2.get(i).addAdjTile(tiles.get(1).get(3));
+				temp3.get(i).addAdjTile(tiles.get(3).get(3));
+			}
+			
+		}//This ends for loop
 		
 		
 		
+		
+		points.add(temp);
+		points.add(temp1);
+		points.add(temp2);
+		points.add(temp3);
+		points.add(temp4); 
+		points.add(temp5);
 		
 	}
 	public static void main(String[] args)
@@ -163,6 +235,7 @@ public class Map {
 			}
 			s += "\n";
 		}
+		s += points.get(2).get(2).toString();
 		return s;	
 	}
 }
