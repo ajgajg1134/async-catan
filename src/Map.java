@@ -5,10 +5,143 @@ public class Map {
 	ArrayList<ArrayList<Point>> points = new ArrayList<ArrayList<Point>>();
 	public Map()
 	{
-		
-		
 		createTiles();
 		createPoints();
+		
+	}
+	public static void main(String[] args)
+	{
+		Map test = new Map();
+		System.out.print(test.toString());
+	}
+	private void createTiles()
+	{
+		ArrayList<Tile> temp = new ArrayList<Tile>();
+		ArrayList<Tile> temp2 = new ArrayList<Tile>();
+		ArrayList<Tile> temp3 = new ArrayList<Tile>();
+		ArrayList<Tile> temp4 = new ArrayList<Tile>();
+		ArrayList<Tile> temp5 = new ArrayList<Tile>();
+		
+		//This array relates to enum in Tile class
+		int[] tileTypes = {4, 3, 4, 4, 3, 1};
+		int[] tokens = {0, 1, 2, 2, 2, 2, 0, 2, 2, 2, 2, 1};
+		
+		for(int i = 0; i < 3; i++)
+		{
+			int type = (int)(Math.random()*6);
+
+			while(tileTypes[type] <= 0)
+				type = (int)(Math.random()*6);	
+			
+			tileTypes[type]--;
+	
+			int tok = (int)(Math.random()*11) + 1;//Random # between 1 and 12(incl)
+			while(tokens[tok] <= 0)
+				tok = (int)(Math.random()*11) + 1;
+			
+			if(type != 5)
+				tokens[tok]--;
+			else
+				tok = 0;
+			
+			temp.add(new Tile(type, tok));
+			
+		}
+
+		tiles.add(temp);
+
+		for(int i = 0; i < 4; i++)
+		{
+			int type = (int)(Math.random()*6);
+
+			while(tileTypes[type] <= 0)
+			{
+				type = (int)(Math.random()*6);
+			}
+			tileTypes[type]--;
+			
+			int tok = (int)(Math.random()*11) + 1;
+			while(tokens[tok] <= 0)
+				tok = (int)(Math.random()*11) + 1;
+			
+			if(type != 5)
+				tokens[tok]--;
+			else
+				tok = 0;
+			
+			temp2.add(new Tile(type, tok));
+		}
+
+		tiles.add(temp2);
+		for(int i = 0; i < 5; i++)
+		{
+			int type = (int)(Math.random()*6);
+
+			while(tileTypes[type] <= 0)
+			{
+				type = (int)(Math.random()*6);					
+			}
+			tileTypes[type]--;
+			
+			int tok = (int)(Math.random()*11) + 1;
+			while(tokens[tok] <= 0)
+				tok = (int)(Math.random()*11) + 1;
+			
+			if(type != 5)
+				tokens[tok]--;
+			else
+				tok = 0;
+			
+			temp3.add(new Tile(type, tok));
+		}
+		tiles.add(temp3);
+
+		for(int i = 0; i < 4; i++)
+		{
+			int type = (int)(Math.random()*6);
+
+			while(tileTypes[type] <= 0)
+			{
+				type = (int)(Math.random()*6);					
+			}
+			tileTypes[type]--;
+			
+			int tok = (int)(Math.random()*11) + 1;
+			while(tokens[tok] <= 0)
+				tok = (int)(Math.random()*11) + 1;
+			
+			if(type != 5)
+				tokens[tok]--;
+			else
+				tok = 0;
+			
+			temp4.add(new Tile(type, tok));
+		}
+		tiles.add(temp4);
+
+		for(int i = 0; i < 3; i++)
+		{
+			int type = (int)(Math.random()*6);
+
+			while(tileTypes[type] <= 0)
+			{
+				type = (int)(Math.random()*6);					
+			}
+			tileTypes[type]--;
+			
+			int tok = (int)(Math.random()*11) + 1;
+			while(tokens[tok] <= 0)
+				tok = (int)(Math.random()*11) + 1;
+			
+			if(type != 5)
+				tokens[tok]--;
+			else
+				tok = 0;
+			
+			temp5.add(new Tile(type, tok));
+		}
+		tiles.add(temp5);
+
 	}
 	private void createPoints()
 	{
@@ -140,89 +273,6 @@ public class Map {
 		points.add(temp5);
 		
 	}
-	public static void main(String[] args)
-	{
-		Map test = new Map();
-		System.out.print(test.toString());
-	}
-	private void createTiles()
-	{
-		ArrayList<Tile> temp = new ArrayList<Tile>();
-		ArrayList<Tile> temp2 = new ArrayList<Tile>();
-		ArrayList<Tile> temp3 = new ArrayList<Tile>();
-		ArrayList<Tile> temp4 = new ArrayList<Tile>();
-		ArrayList<Tile> temp5 = new ArrayList<Tile>();
-		
-		//This array relates to enum in Tile class
-		int[] setup = {4, 3, 4, 4, 3, 1};
-		
-		for(int i = 0; i < 3; i++)
-		{
-			int type = (int)(Math.random()*6);
-
-			while(setup[type] <= 0)
-			{
-				type = (int)(Math.random()*6);					
-			}
-			temp.add(new Tile(type));
-			setup[type]--;
-		}
-
-		tiles.add(temp);
-
-		for(int i = 0; i < 4; i++)
-		{
-			int type = (int)(Math.random()*6);
-
-			while(setup[type] <= 0)
-			{
-				type = (int)(Math.random()*6);
-			}
-			temp2.add(new Tile(type));
-			setup[type]--;
-		}
-
-		tiles.add(temp2);
-		for(int i = 0; i < 5; i++)
-		{
-			int type = (int)(Math.random()*6);
-
-			while(setup[type] <= 0)
-			{
-				type = (int)(Math.random()*6);					
-			}
-			temp3.add(new Tile(type));
-			setup[type]--;
-		}
-		tiles.add(temp3);
-
-		for(int i = 0; i < 4; i++)
-		{
-			int type = (int)(Math.random()*6);
-
-			while(setup[type] <= 0)
-			{
-				type = (int)(Math.random()*6);					
-			}
-			temp4.add(new Tile(type));
-			setup[type]--;
-		}
-		tiles.add(temp4);
-
-		for(int i = 0; i < 3; i++)
-		{
-			int type = (int)(Math.random()*6);
-
-			while(setup[type] <= 0)
-			{
-				type = (int)(Math.random()*6);					
-			}
-			temp5.add(new Tile(type));
-			setup[type]--;
-		}
-		tiles.add(temp5);
-
-	}
 	public String toString()
 	{
 		String s = "";
@@ -235,7 +285,7 @@ public class Map {
 			}
 			s += "\n";
 		}
-		s += points.get(2).get(2).toString();
+		s += points.get(2).get(0).toString();
 		return s;	
 	}
 }
