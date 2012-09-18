@@ -14,9 +14,9 @@ public class Tile {
 	{
 		type = tileType.values()[tp];
 	}
-	public Tile(tileType tp, int tk)
+	public Tile(int tp, int tk)
 	{
-		type = tp;
+		type = tileType.values()[tp];
 		token = tk;
 	}
 	public tileType getType()
