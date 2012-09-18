@@ -4,12 +4,6 @@ public class Player {
 	ArrayList<Point> ownedPoints = new ArrayList<Point>();
 	ArrayList<Road> ownedRoads = new ArrayList<Road>();
 	int sheep, stone, brick, wood, wheat;
-	/*0  FOREST,
-	 *1	MOUNTAIN,
-	 *2	FIELDS,
-	 *3	PASTURE,
-	 *4	HILLS,
-	 *5	DESERT  */
 	public Player()
 	{
 		sheep = 0; 
@@ -53,8 +47,31 @@ public class Player {
 			case PASTURE: sheep++; break;
 			case HILLS: brick++; break;
 			default: break;
-
 		}
 	}
-	
+	public void trade(String type, int num)
+	{
+		switch(type)
+		{
+		case "wood": wood -= num; break;
+		case "stone": stone -= num; break;
+		case "wheat": wheat -= num; break;
+		case "sheep": sheep -= num; break;
+		case "brick": brick -= num; break;
+		default: System.err.print("ERROR: Trade attempt without proper type");
+		}
+	}
+	public int getResourceCount(String type)
+	{
+		switch(type)
+		{
+		case "wood": return wood;
+		case "stone": return stone;
+		case "wheat": return wheat;
+		case "sheep": return sheep;
+		case "brick": return brick;
+		default: System.err.print("ERROR: getResource attempt without proper type");
+		}
+		return -1;
+	}
 }
